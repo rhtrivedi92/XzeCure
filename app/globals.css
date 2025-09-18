@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
+/* Brand tokens (v4) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-brandblue-500: #155e9e; /* your blue */
+  --color-brandgreen-500: #70ba36; /* your green */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Reusable UI helpers (optional) */
+@layer components {
+  .card {
+    background-color: rgb(30 41 59 / 0.8); /* bg-slate-800/80 */
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.1),
+      0 4px 6px -4px rgb(15 23 42 / 0.1); /* shadow-lg */
+    border: 1px solid #334155; /* border border-slate-700 */
+    padding: 1.5rem; /* p-6 */
   }
-}
+  .input,
+  .select,
+  .textarea {
+    background-color: #334155; /* bg-slate-700 */
+    color: #f1f5f9; /* text-slate-100 */
+    border: 1px solid #475569; /* border border-slate-600 */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding-left: 0.75rem; /* px-3 */
+    padding-right: 0.75rem; /* px-3 */
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    width: 100%; /* w-full */
+    outline: none; /* outline-none */
+  }
+  .input:focus,
+  .select:focus,
+  .textarea:focus {
+    box-shadow: 0 0 0 2px rgb(21 94 158 / 0.6); /* focus:ring-2 focus:ring-brandblue-500/60 */
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* gap-2 */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    /* inherits .btn styles */
+    background-color: var(--color-brandblue-500);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: #1e40af; /* blue-800 */
+  }
+  .help {
+    font-size: 0.875rem; /* text-sm */
+    color: #cbd5e1; /* text-slate-300 */
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .card-soft {
+    border-radius: 1rem; /* rounded-2xl */
+    background-color: rgb(30 41 59 / 0.8); /* bg-slate-800/80 */
+    border: 1px solid #334155; /* border border-slate-700 */
+    box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.1),
+      0 4px 6px -4px rgb(15 23 42 / 0.1); /* shadow-lg */
+  }
 }
